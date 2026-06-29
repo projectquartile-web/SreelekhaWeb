@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "title": "Where Stories Come Alive",
+    "subtitle": "An intimate cinema, made for the people who love the lights going down."
+  },
+  "about": {
+    "title": "A Legacy of Cinema",
+    "subtitle": "OUR STORY",
+    "description": "For decades, Sree Lekha Theatre has been the place Chikkamagaluru gathers to watch, to feel, to remember. A quiet hall in the hills, devoted to the moving image.",
+    "stat1Label": "EST.",
+    "stat1Val": "1994",
+    "stat2Label": "SEATS",
+    "stat2Val": "450+",
+    "stat3Label": "SOUND",
+    "stat3Val": "Dolby Atmos"
+  },
+  "facilities": {
+    "title": "Designed Around You",
+    "subtitle": "THE EXPERIENCE",
+    "seating": {
+      "title": "Comfortable Seating",
+      "desc": "Wide, cushioned seats with generous legroom."
+    },
+    "parking": {
+      "title": "Convenient Parking",
+      "desc": "Step-free arrival, ample on-site parking."
+    },
+    "snacks": {
+      "title": "Snacks & Refreshments",
+      "desc": "Fresh popcorn and curated bites at the counter."
+    },
+    "family": {
+      "title": "Family Friendly",
+      "desc": "A welcoming space for every generation."
+    }
+  },
+  "gallery": {
+    "title": "A Closer Look",
+    "subtitle": "GALLERY",
+    "items": {
+      "screen": {
+        "title": "Main Auditorium",
+        "category": "Auditorium"
+      },
+      "exterior": {
+        "title": "Grand Facade",
+        "category": "Exterior"
+      },
+      "seats": {
+        "title": "Premium Seating",
+        "category": "Comfort"
+      },
+      "snackbar": {
+        "title": "Concessions Bar",
+        "category": "Snack Bar"
+      },
+      "popcorn": {
+        "title": "Gourmet Popcorn",
+        "category": "Snacks"
+      },
+      "car-parking": {
+        "title": "Four-Wheeler Parking",
+        "category": "Parking"
+      },
+      "bike-parking": {
+        "title": "Two-Wheeler Parking Area",
+        "category": "Parking"
+      }
+    }
+  },
+  "contact": {
+    "title": "Find Us",
+    "subtitle": "VISIT",
+    "addressTitle": "Our Location",
+    "phoneTitle": "Phone Numbers",
+    "emailTitle": "Email Address",
+    "whatsappMessage": "Hi Sreelekha Theatre, I would like to inquire about show timings and details.",
+    "operationsLabel": "Theatre Operations",
+    "operationsMessage": "Box Office opens 30 minutes before the first show. Online booking available at BookMyShow 24/7."
+  },
+  "ctaSection": {
+    "title": "Experience Cinema at Sreelekha",
+    "subtitle": "Join us today for an unforgettable cinema experience with premium sound and absolute comfort."
+  }
+}

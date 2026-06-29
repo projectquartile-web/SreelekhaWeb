@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "gallery": "Gallery",
+    "visit": "Visit"
+  },
+  "cta": {
+    "bookTickets": "Book Tickets",
+    "explore": "Explore Theatre",
+    "callNow": "Call Now",
+    "whatsApp": "WhatsApp Us",
+    "getDirections": "Get Directions",
+    "contactUs": "Contact Us"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "Crafting premium cinema experiences since 1994.",
+    "links": "Quick Links",
+    "contact": "Contact Info",
+    "location": "Chikkamagaluru, Karnataka, India"
+  }
+}
