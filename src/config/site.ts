@@ -5,7 +5,7 @@ export const siteConfig = {
   country: "India",
   defaultLocale: "en",
   locales: ["en", "kn"] as const,
-  domain: "sreelekhatheatre.com", // Placeholder domain for meta tags
+  domain: "shreelekhatheatre.com",
 };
 
 export type Locale = (typeof siteConfig.locales)[number];
