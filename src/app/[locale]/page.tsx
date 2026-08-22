@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import NowShowing from "@/components/NowShowing";
 import About from "@/components/About";
 import Facilities from "@/components/Facilities";
 import Gallery from "@/components/Gallery";
@@ -10,7 +11,12 @@ import { siteConfig } from "@/config/site";
 import { theatreData } from "@/data/theatre";
 import { contactData } from "@/data/contact";
 
-export default function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   // Structured data (Schema.org JSON-LD) for Local Business & MovieTheater
   const jsonLd = {
     "@context": "https://schema.org",
@@ -59,6 +65,7 @@ export default function HomePage() {
       <Navbar />
       <main className="flex-grow">
         <Hero variant="image" mediaUrl="/HallScreenview.png" />
+        <NowShowing locale={locale} />
         <About />
         <Facilities />
         <Gallery />

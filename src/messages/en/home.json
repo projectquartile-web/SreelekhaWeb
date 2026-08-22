@@ -81,5 +81,12 @@
   "ctaSection": {
     "title": "Experience Cinema at Sreelekha",
     "subtitle": "Join us today for an unforgettable cinema experience with premium sound and absolute comfort."
+  },
+  "movies": {
+    "title": "Now Showing",
+    "subtitle": "ON SCREEN",
+    "activeBanner": "Live Programme — Updated Daily",
+    "timingsLabel": "Showtimes",
+    "noMovies": "No movies currently showing. Check back soon."
   }
 }
