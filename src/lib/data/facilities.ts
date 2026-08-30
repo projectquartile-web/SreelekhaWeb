@@ -1,4 +1,4 @@
-import { Facility } from "@/types/facility";
+import { Facility } from "@/lib/types/facility";
 
 export const facilitiesData: Facility[] = [
   {

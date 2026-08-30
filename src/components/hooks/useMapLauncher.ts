@@ -1,6 +1,6 @@
 "use client";
 
-import { theatreData } from "@/data/theatre";
+import { theatreData } from "@/lib/data/theatre";
 
 /**
  * Custom React hook to launch platform-aware native maps application (Apple Maps for iOS, Google Maps for others).

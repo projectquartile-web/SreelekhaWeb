@@ -1,6 +1,6 @@
 import React from "react";
 import { getMovies, getSchedule } from "@/lib/db";
-import DashboardClient from "./DashboardClient";
+import DashboardClient from "@/components/admin/DashboardClient";
 
 function getLocalDateString(date: Date) {
   return new Intl.DateTimeFormat('en-CA', {

@@ -1,4 +1,4 @@
-import { ContactInfo } from "@/types/contact";
+import { ContactInfo } from "@/lib/types/contact";
 
 export const contactData: ContactInfo = {
   email: "info@sreelekhatheatre.com",

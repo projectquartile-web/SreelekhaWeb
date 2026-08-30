@@ -4,11 +4,11 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import SectionHeading from "./SectionHeading";
 import AnimatedReveal from "./AnimatedReveal";
-import { contactData } from "@/data/contact";
-import { theatreData } from "@/data/theatre";
+import { contactData } from "@/lib/data/contact";
+import { theatreData } from "@/lib/data/theatre";
 import { MapPin, Mail, Clock } from "lucide-react";
 
-import { useMapLauncher } from "@/hooks/useMapLauncher";
+import { useMapLauncher } from "@/components/hooks/useMapLauncher";
 
 export default function Contact() {
   const t = useTranslations("home");

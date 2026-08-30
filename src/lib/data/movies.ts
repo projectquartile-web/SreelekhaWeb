@@ -1,4 +1,4 @@
-import { Movie } from "@/types/movie";
+import { Movie } from "@/lib/types/movie";
 
 export const moviesData: Movie[] = [
   {

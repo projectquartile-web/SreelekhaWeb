@@ -3,8 +3,8 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { contactData } from "@/data/contact";
-import { siteConfig } from "@/config/site";
+import { contactData } from "@/lib/data/contact";
+import { siteConfig } from "@/lib/config/site";
 
 export default function Footer() {
   const t = useTranslations("common");

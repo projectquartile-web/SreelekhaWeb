@@ -7,9 +7,9 @@ import Facilities from "@/components/Facilities";
 import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import { siteConfig } from "@/config/site";
-import { theatreData } from "@/data/theatre";
-import { contactData } from "@/data/contact";
+import { siteConfig } from "@/lib/config/site";
+import { theatreData } from "@/lib/data/theatre";
+import { contactData } from "@/lib/data/contact";
 
 export default async function HomePage({
   params,

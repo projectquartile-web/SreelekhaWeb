@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "sreelekhaweb",
   "account_id": "89c44265d84d3b21f44da4b4755537d1",
-  "main": ".open-next/worker.js",
+  "main": "cloudflare-entry.js",
   "compatibility_date": "2024-12-30",
   "compatibility_flags": [
     "nodejs_compat"
@@ -17,5 +17,10 @@
       "database_name": "sreelekha-db",
       "database_id": "af4badde-bff7-4f82-839f-c0f6b4b197c0"
     }
-  ]
+  ],
+  "triggers": {
+    "crons": [
+      "0 * * * *"
+    ]
+  }
 }

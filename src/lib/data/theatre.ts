@@ -1,4 +1,4 @@
-import { TheatreConfig } from "@/types/theatre";
+import { TheatreConfig } from "@/lib/types/theatre";
 
 export const theatreData: TheatreConfig = {
   name: "Sree Lekha Theatre",

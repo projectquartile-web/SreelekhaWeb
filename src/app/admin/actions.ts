@@ -1,5 +1,7 @@
 "use server";
 
+import { getCloudflareContext } from "@opennextjs/cloudflare";
+
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
@@ -67,6 +69,52 @@ export async function loginAction(prevState: LoginState, formData: FormData): Pr
   return { error: "" };
 }
 
+export async function saveTrailerAction(movieId: number, url: string) {
+  await requireAuth();
+  const { extractYouTubeId } = await import('@/lib/youtube-parser');
+  const videoId = extractYouTubeId(url);
+  
+  if (!videoId) {
+    throw new Error("Invalid YouTube URL");
+  }
+
+  const { env } = getCloudflareContext();
+  const db = env.DB as unknown as import("@cloudflare/workers-types").D1Database;
+  await db.prepare(
+    "UPDATE movies SET youtube_trailer_id = ?, youtube_trailer_is_manual_override = 1, updated_at = datetime('now') WHERE id = ?"
+  ).bind(videoId, movieId).run();
+
+  revalidatePath("/admin/dashboard");
+  revalidatePath("/[locale]");
+  return { success: true, videoId };
+}
+
+export async function clearTrailerAction(movieId: number) {
+  await requireAuth();
+  const { env } = getCloudflareContext();
+  const db = env.DB as unknown as import("@cloudflare/workers-types").D1Database;
+  await db.prepare(
+    "UPDATE movies SET youtube_trailer_id = NULL, youtube_trailer_is_manual_override = 1, updated_at = datetime('now') WHERE id = ?"
+  ).bind(movieId).run();
+
+  revalidatePath("/admin/dashboard");
+  revalidatePath("/[locale]");
+  return { success: true };
+}
+
+export async function resetTrailerAction(movieId: number) {
+  await requireAuth();
+  const { env } = getCloudflareContext();
+  const db = env.DB as unknown as import("@cloudflare/workers-types").D1Database;
+  await db.prepare(
+    "UPDATE movies SET youtube_trailer_is_manual_override = 0, updated_at = datetime('now') WHERE id = ?"
+  ).bind(movieId).run();
+
+  revalidatePath("/admin/dashboard");
+  revalidatePath("/[locale]");
+  return { success: true };
+}
+
 export async function logoutAction() {
   const cookieStore = await cookies();
   cookieStore.delete({
@@ -115,7 +163,7 @@ export async function saveShowsAction(movieId: number, date: string, times: stri
 
   // Filter out empty times and sort them
   const validTimes = times.filter(t => t.trim() !== "").sort();
-  await upsertShows(movieId, date, validTimes);
+  await upsertShows(movieId, date, validTimes, true);
   clearPublicCache();
   revalidatePath("/admin/dashboard");
 }

@@ -5,7 +5,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-import { useScrollThreshold } from "@/hooks/useScrollThreshold";
+import { useScrollThreshold } from "@/components/hooks/useScrollThreshold";
 
 export default function Navbar() {
   const isScrolled = useScrollThreshold(36);
