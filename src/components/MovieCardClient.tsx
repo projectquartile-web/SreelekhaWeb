@@ -29,7 +29,7 @@ export function MovieCardClient({ movie, index, timingsLabel }: MovieCardClientP
         
         {/* ── Poster / Title Area ── */}
         <div
-          className={`relative aspect-[2/3] w-full flex flex-col justify-center items-center overflow-hidden border-b border-neutral-800 ${
+          className={`relative aspect-video w-full flex flex-col justify-center items-center overflow-hidden border-b border-neutral-800 ${
             movie.youtube_trailer_id ? "cursor-pointer" : ""
           } ${!movie.youtube_trailer_id ? `bg-gradient-to-br ${gradient} p-6` : ""}`}
           onClick={() => {

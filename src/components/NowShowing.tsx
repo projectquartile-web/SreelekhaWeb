@@ -70,10 +70,10 @@ export default async function NowShowing({ locale }: NowShowingProps) {
             </p>
           </AnimatedReveal>
         ) : (
-          <div className={`grid gap-8 ${
-            schedule.length === 1 ? 'grid-cols-1 max-w-sm mx-auto' :
-            schedule.length === 2 ? 'grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto' :
-            schedule.length === 3 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto' :
+          <div className={`grid gap-8 w-full ${
+            schedule.length === 1 ? 'grid-cols-1' :
+            schedule.length === 2 ? 'grid-cols-1 sm:grid-cols-2' :
+            schedule.length === 3 ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' :
             'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'
           }`}>
             {schedule.map((movie, index) => (
