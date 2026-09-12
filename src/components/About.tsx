@@ -9,7 +9,8 @@ export default function About() {
   const t = useTranslations("home");
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-white overflow-hidden border-b border-neutral-100">
+    <section id="about" className="pt-12 md:pt-16 pb-24 md:pb-32 bg-white overflow-hidden relative border-b border-neutral-100">
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-neutral-100/60 pointer-events-none z-10" />
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Narrative & Stats Editorial Grid */}

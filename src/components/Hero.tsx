@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import { theme } from "@/lib/theme";
 
@@ -12,6 +12,7 @@ interface HeroProps {
 
 export default function Hero({ variant = "image", mediaUrl = "/hero/hero-bg.jpg" }: HeroProps) {
   const t = useTranslations("home");
+  const locale = useLocale();
 
   return (
     <section
@@ -41,14 +42,14 @@ export default function Hero({ variant = "image", mediaUrl = "/hero/hero-bg.jpg"
 
 
       {/* Content Container */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 text-center flex flex-col items-center -translate-y-6">
 
         {/* Hero Title - Playfair Display serif */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...theme.animations.springSlow, delay: 0.2 }}
-          className="text-6xl md:text-9xl font-serif text-white font-normal mb-8 leading-[1.05] tracking-tight"
+          className={`font-serif text-white font-normal mb-8 leading-[1.05] tracking-tight ${locale === "kn" ? "text-5xl md:text-8xl" : "text-6xl md:text-9xl"}`}
         >
           {t("hero.title")}
         </motion.h1>

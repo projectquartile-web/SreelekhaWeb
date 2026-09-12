@@ -16,7 +16,7 @@ export default function Contact() {
   const { launchMaps } = useMapLauncher();
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-white relative border-b border-neutral-100">
+    <section id="contact" className="pt-12 md:pt-16 pb-24 md:pb-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionHeading title={t("contact.title")} subtitle={t("contact.subtitle")} />
 

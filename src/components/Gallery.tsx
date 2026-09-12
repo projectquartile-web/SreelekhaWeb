@@ -43,7 +43,8 @@ export default function Gallery() {
   ];
 
   return (
-    <section id="gallery" className="py-24 md:py-32 bg-white relative border-b border-neutral-100">
+    <section id="gallery" className="pt-24 md:pt-32 pb-4 md:pb-6 bg-white relative border-b border-neutral-100">
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-neutral-100/60 pointer-events-none z-10" />
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionHeading title={t("gallery.title")} subtitle={t("gallery.subtitle")} />
 

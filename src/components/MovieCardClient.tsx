@@ -5,12 +5,13 @@ import { Play } from "lucide-react";
 import AnimatedReveal from "./AnimatedReveal";
 import { YouTubeThumbnail, YouTubeModal } from "./YouTubePlayer";
 import type { MovieWithShows } from "@/lib/db";
+import { formatShowtime } from "@/lib/formatTime";
 
 const FALLBACK_GRADIENTS = [
   "from-slate-900 via-neutral-900 to-black",
   "from-blue-950 via-slate-950 to-black",
   "from-zinc-900 via-neutral-900 to-black",
-  "from-neutral-950 via-slate-900 to-black",
+  "from-neutral-950 via-slate-950 to-black",
 ];
 
 interface MovieCardClientProps {
@@ -69,16 +70,16 @@ export function MovieCardClient({ movie, index, timingsLabel }: MovieCardClientP
           </h4>
 
           <div>
-            <span className="text-[10px] tracking-[0.15em] text-neutral-400 uppercase block mb-2">
+            <span className="text-xs tracking-[0.15em] text-neutral-500 font-medium uppercase block mb-2.5">
               {timingsLabel}
             </span>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-2">
               {movie.shows.map((show, i) => (
                 <span
                   key={i}
-                  className="text-[10px] bg-white text-neutral-700 border border-neutral-200/80 px-2 py-1 rounded-sm font-mono shadow-sm"
+                  className="text-xs sm:text-sm font-semibold bg-white text-neutral-900 border border-neutral-300 px-3 py-1.5 rounded-sm font-mono shadow-xs"
                 >
-                  {show.show_time}
+                  {formatShowtime(show.show_time)}
                 </span>
               ))}
             </div>

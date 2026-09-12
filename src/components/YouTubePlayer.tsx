@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { X, Play } from "lucide-react";
+import React, { useState, useEffect, useCallback } from "react";
+import { Play } from "lucide-react";
 
 interface YouTubeThumbnailProps {
   videoId: string;
@@ -71,26 +71,58 @@ interface YouTubeModalProps {
 }
 
 export function YouTubeModal({ videoId, isOpen, onClose }: YouTubeModalProps) {
+  // Close on Escape key
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    },
+    [onClose]
+  );
+
+  useEffect(() => {
+    if (!isOpen) return;
+    document.addEventListener("keydown", handleKeyDown);
+    // Prevent body scroll while modal is open
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, handleKeyDown]);
+
   if (!isOpen || !videoId) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 sm:p-6 backdrop-blur-sm">
-      <div className="relative w-full max-w-5xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl border border-white/10 animate-in fade-in zoom-in-95 duration-200">
-        <button
-          onClick={onClose}
-          className="absolute -top-12 right-0 sm:top-4 sm:-right-12 md:-right-16 text-white/70 hover:text-white transition-colors p-2"
-          aria-label="Close"
-        >
-          <X className="w-8 h-8" />
-        </button>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full h-full absolute inset-0"
-        ></iframe>
+    /* Backdrop — the entire dark area around the player is the dismiss target */
+    <div
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-8 cursor-pointer"
+      onClick={onClose}
+      aria-modal="true"
+      role="dialog"
+      aria-label="Close trailer"
+    >
+      {/* Player container — stop propagation so normal YouTube clicks don't close */}
+      <div
+        className="relative w-full max-w-5xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* ── YouTube iframe ── */}
+        <div className="aspect-video w-full bg-black rounded-lg overflow-hidden shadow-2xl border border-white/10 animate-in fade-in zoom-in-95 duration-200">
+          <iframe
+            key={videoId}
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+            title="YouTube trailer player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            className="w-full h-full"
+          />
+        </div>
       </div>
+
+      {/* Subtle dismiss hint */}
+      <p className="mt-4 text-white/30 text-xs tracking-widest uppercase select-none pointer-events-none">
+        Tap outside to close
+      </p>
     </div>
   );
 }

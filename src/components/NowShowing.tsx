@@ -43,24 +43,14 @@ export default async function NowShowing({ locale }: NowShowingProps) {
   }
 
   return (
-    <section id="now-showing" className="py-24 md:py-32 bg-white relative">
+    <section id="now-showing" className="pt-24 md:pt-32 pb-4 md:pb-6 bg-white relative">
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-neutral-100/60 pointer-events-none z-10" />
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionHeading
           title={t("movies.title")}
           subtitle={t("movies.subtitle")}
         />
 
-        {/* Live banner */}
-        <AnimatedReveal yOffset={15} className="mb-12">
-          <div className="w-full bg-[#F8FAFC] border border-neutral-200/60 p-6 md:p-8 rounded-sm flex items-center justify-center">
-            <div className="flex items-center gap-4">
-              <div className="w-2 h-2 rounded-full bg-[#2563EB] animate-pulse" />
-              <span className="text-sm font-semibold tracking-[0.2em] text-neutral-900 uppercase">
-                {t("movies.activeBanner")}
-              </span>
-            </div>
-          </div>
-        </AnimatedReveal>
 
         {/* Movie grid or empty state */}
         {schedule.length === 0 ? (

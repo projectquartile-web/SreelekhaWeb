@@ -45,6 +45,7 @@ export default function Facilities() {
 
   return (
     <section id="facilities" className="py-24 md:py-32 bg-[#F8FAFC] relative overflow-hidden border-b border-neutral-100">
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-neutral-200/50 pointer-events-none z-10" />
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <SectionHeading title={t("facilities.title")} subtitle={t("facilities.subtitle")} />
 
